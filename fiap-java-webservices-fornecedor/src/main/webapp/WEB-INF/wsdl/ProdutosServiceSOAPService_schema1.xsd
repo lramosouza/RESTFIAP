@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.fiap.com.br/" xmlns:tns="http://services.fiap.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ProdutoException" type="tns:ProdutoException"/>
+
+  <xs:element name="listarProdutos" type="tns:listarProdutos"/>
+
+  <xs:element name="listarProdutosResponse" type="tns:listarProdutosResponse"/>
+
+  <xs:complexType name="listarProdutos">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarProdutosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:produto" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="produto">
+    <xs:sequence>
+      <xs:element name="codProduto" type="xs:int"/>
+      <xs:element name="descricao" type="xs:string" minOccurs="0"/>
+      <xs:element name="produtoDisponivel" type="xs:boolean"/>
+      <xs:element name="qtdEstoque" type="xs:int"/>
+      <xs:element name="valor" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProdutoException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
