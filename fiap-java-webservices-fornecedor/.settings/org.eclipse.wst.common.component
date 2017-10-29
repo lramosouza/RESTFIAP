@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/fiap-java-webservices-fornecedor/target/classes"/>
-        <property name="context-root" value="PersonManagementServer"/>
+        <property name="context-root" value="FornecedoresServiceSOAP"/>
     </wb-module>
 </project-modules>
