@@ -13,6 +13,17 @@ public class Produto implements Serializable {
 	public Produto() {
 
 	}
+	
+		
+	public Produto(int codProduto, String descricao, int qtdEstoque, BigDecimal valor, boolean isProdutoDisponivel) {
+		super();
+		this.codProduto = codProduto;
+		this.descricao = descricao;
+		this.qtdEstoque = qtdEstoque;
+		this.valor = valor;
+		this.isProdutoDisponivel = isProdutoDisponivel;
+	}
+
 
 	private int codProduto;
 	private String descricao;

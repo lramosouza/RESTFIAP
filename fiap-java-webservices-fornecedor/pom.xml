@@ -21,11 +21,12 @@
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.2.10</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.istack</groupId>
-			<artifactId>istack-commons-runtime</artifactId>
-			<version>2.22</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>istack-commons-runtime</artifactId>
+					<groupId>com.sun.istack</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>

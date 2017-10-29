@@ -10,7 +10,7 @@ import br.com.fiap.domain.Produto;
 import br.com.fiap.exception.ProdutoException;
 import br.com.fiap.util.Util;
 
-@WebService
+@WebService(name = "ProdutosServiceSOAP")
 public class ProdutosServiceSOAP {
 	
 	static List<Produto> produtos = null;
