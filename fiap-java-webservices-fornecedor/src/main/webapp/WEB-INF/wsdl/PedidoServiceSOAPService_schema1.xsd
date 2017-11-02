@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.fiap.com.br/" xmlns:tns="http://services.fiap.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="processarPedido" type="tns:processarPedido"/>
+
+  <xs:element name="processarPedidoResponse" type="tns:processarPedidoResponse"/>
+
+  <xs:complexType name="processarPedido">
+    <xs:sequence>
+      <xs:element name="cpfCnpj" type="xs:string" minOccurs="0"/>
+      <xs:element name="pedido" type="tns:pedido" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pedido">
+    <xs:sequence>
+      <xs:element name="codProduto" type="xs:int"/>
+      <xs:element name="descricao" type="xs:string" minOccurs="0"/>
+      <xs:element name="valor" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="processarPedidoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

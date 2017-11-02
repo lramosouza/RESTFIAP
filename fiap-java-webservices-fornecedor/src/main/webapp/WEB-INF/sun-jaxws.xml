@@ -4,5 +4,8 @@
 
 	<endpoint implementation="br.com.fiap.services.ProdutosServiceSOAP"
 		name="ProdutosServiceSOAP" url-pattern="/ProdutosServiceSOAP" />
+	
+	<endpoint implementation="br.com.fiap.services.PedidoServiceSOAP"
+		name="PedidoServiceSOAP" url-pattern="/PedidoServiceSOAP" />
 
 </endpoints>
