@@ -25,10 +25,10 @@ public class ProdutosServiceSOAP {
 		try {
 			List<Produto> produtos = Util.listaProdutos();
 			
-			if (isAutenticado(username, password)){
+			if (Util.isAutenticado(username, password)){
 				System.out.println(produtos);
 				return produtos;
-			}else{
+			} else {
 				throw new ProdutoException("Usuário não possui permissão para consultar produtos");
 			}
 		} catch (Exception e) {
@@ -37,16 +37,4 @@ public class ProdutosServiceSOAP {
 				
 	}
 	
-	@WebMethod 
-	public boolean isAutenticado(String usuario, String senha){
-		boolean res = Boolean.FALSE;
-		
-		if ("forn".equals(usuario) && "forn".equals(senha)){
-			 res = Boolean.TRUE;
-		}
-		
-		return res;
-	}
-
-		
 }

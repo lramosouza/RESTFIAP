@@ -7,26 +7,9 @@
 
   <xs:element name="Username" nillable="true" type="xs:string"/>
 
-  <xs:element name="isAutenticado" type="tns:isAutenticado"/>
-
-  <xs:element name="isAutenticadoResponse" type="tns:isAutenticadoResponse"/>
-
   <xs:element name="listarProdutos" type="tns:listarProdutos"/>
 
   <xs:element name="listarProdutosResponse" type="tns:listarProdutosResponse"/>
-
-  <xs:complexType name="isAutenticado">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
-      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="isAutenticadoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
 
   <xs:complexType name="listarProdutos">
     <xs:sequence/>

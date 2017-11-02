@@ -45,7 +45,8 @@
 				</executions>
 				<configuration>
 					<sei>br.com.fiap.services.ProdutosServiceSOAP</sei>
-					<sei>br.com.fiap.services.PedidoServiceSOAP</sei>
+					<!-- <sei>br.com.fiap.services.PedidoServiceSOAP</sei> -->
+					
 					<genWsdl>true</genWsdl>
 					<keep>true</keep>
 					<resourceDestDir>${basedir}/src/main/webapp/WEB-INF/wsdl</resourceDestDir>

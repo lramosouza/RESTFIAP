@@ -7,20 +7,20 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "isAutenticadoResponse", namespace = "http://services.fiap.com.br/")
+@XmlRootElement(name = "efetuarPedidoResponse", namespace = "http://services.fiap.com.br/")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "isAutenticadoResponse", namespace = "http://services.fiap.com.br/")
-public class IsAutenticadoResponse {
+@XmlType(name = "efetuarPedidoResponse", namespace = "http://services.fiap.com.br/")
+public class EfetuarPedidoResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private boolean _return;
+    private String _return;
 
     /**
      * 
      * @return
-     *     returns boolean
+     *     returns String
      */
-    public boolean isReturn() {
+    public String getReturn() {
         return this._return;
     }
 
@@ -29,7 +29,7 @@ public class IsAutenticadoResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(boolean _return) {
+    public void setReturn(String _return) {
         this._return = _return;
     }
 

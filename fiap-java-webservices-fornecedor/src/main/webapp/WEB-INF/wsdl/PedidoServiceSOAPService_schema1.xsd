@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://services.fiap.com.br/" xmlns:tns="http://services.fiap.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="processarPedido" type="tns:processarPedido"/>
+  <xs:element name="Password" nillable="true" type="xs:string"/>
 
-  <xs:element name="processarPedidoResponse" type="tns:processarPedidoResponse"/>
+  <xs:element name="PedidoException" type="tns:PedidoException"/>
 
-  <xs:complexType name="processarPedido">
+  <xs:element name="Username" nillable="true" type="xs:string"/>
+
+  <xs:element name="efetuarPedido" type="tns:efetuarPedido"/>
+
+  <xs:element name="efetuarPedidoResponse" type="tns:efetuarPedidoResponse"/>
+
+  <xs:complexType name="efetuarPedido">
     <xs:sequence>
       <xs:element name="cpfCnpj" type="xs:string" minOccurs="0"/>
       <xs:element name="pedido" type="tns:pedido" minOccurs="0" maxOccurs="unbounded"/>
@@ -20,9 +26,15 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="processarPedidoResponse">
+  <xs:complexType name="efetuarPedidoResponse">
     <xs:sequence>
-      <xs:element name="return" type="xs:boolean"/>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PedidoException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

@@ -6,28 +6,39 @@
       <xsd:import namespace="http://services.fiap.com.br/" schemaLocation="PedidoServiceSOAPService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="processarPedido">
-    <part name="parameters" element="tns:processarPedido"/>
+  <message name="efetuarPedido">
+    <part name="parameters" element="tns:efetuarPedido"/>
+    <part name="Username" element="tns:Username"/>
+    <part name="Password" element="tns:Password"/>
   </message>
-  <message name="processarPedidoResponse">
-    <part name="parameters" element="tns:processarPedidoResponse"/>
+  <message name="efetuarPedidoResponse">
+    <part name="result" element="tns:efetuarPedidoResponse"/>
+  </message>
+  <message name="PedidoException">
+    <part name="fault" element="tns:PedidoException"/>
   </message>
   <portType name="PedidoServiceSOAP">
-    <operation name="processarPedido">
-      <input wsam:Action="http://services.fiap.com.br/PedidoServiceSOAP/processarPedidoRequest" message="tns:processarPedido"/>
-      <output wsam:Action="http://services.fiap.com.br/PedidoServiceSOAP/processarPedidoResponse" message="tns:processarPedidoResponse"/>
+    <operation name="efetuarPedido" parameterOrder="parameters Username Password">
+      <input wsam:Action="http://services.fiap.com.br/PedidoServiceSOAP/efetuarPedidoRequest" message="tns:efetuarPedido"/>
+      <output wsam:Action="http://services.fiap.com.br/PedidoServiceSOAP/efetuarPedidoResponse" message="tns:efetuarPedidoResponse"/>
+      <fault message="tns:PedidoException" name="PedidoException" wsam:Action="http://services.fiap.com.br/PedidoServiceSOAP/efetuarPedido/Fault/PedidoException"/>
     </operation>
   </portType>
   <binding name="PedidoServiceSOAPPortBinding" type="tns:PedidoServiceSOAP">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="processarPedido">
+    <operation name="efetuarPedido">
       <soap:operation soapAction=""/>
       <input>
-        <soap:body use="literal"/>
+        <soap:body use="literal" parts="parameters"/>
+        <soap:header message="tns:efetuarPedido" part="Username" use="literal"/>
+        <soap:header message="tns:efetuarPedido" part="Password" use="literal"/>
       </input>
       <output>
         <soap:body use="literal"/>
       </output>
+      <fault name="PedidoException">
+        <soap:fault name="PedidoException" use="literal"/>
+      </fault>
     </operation>
   </binding>
   <service name="PedidoServiceSOAPService">

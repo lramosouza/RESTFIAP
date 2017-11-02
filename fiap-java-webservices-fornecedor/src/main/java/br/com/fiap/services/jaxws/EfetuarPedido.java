@@ -9,13 +9,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import br.com.fiap.domain.Pedido;
 
-@XmlRootElement(name = "processarPedido", namespace = "http://services.fiap.com.br/")
+@XmlRootElement(name = "efetuarPedido", namespace = "http://services.fiap.com.br/")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "processarPedido", namespace = "http://services.fiap.com.br/", propOrder = {
+@XmlType(name = "efetuarPedido", namespace = "http://services.fiap.com.br/", propOrder = {
     "cpfCnpj",
     "pedido"
 })
-public class ProcessarPedido {
+public class EfetuarPedido {
 
     @XmlElement(name = "cpfCnpj", namespace = "")
     private String cpfCnpj;
