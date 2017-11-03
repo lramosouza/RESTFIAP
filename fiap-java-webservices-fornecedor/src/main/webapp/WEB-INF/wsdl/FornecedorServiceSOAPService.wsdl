@@ -17,17 +17,16 @@
   <message name="ProdutoException">
     <part name="fault" element="tns:ProdutoException"/>
   </message>
-  <message name="isAutenticado">
-    <part name="parameters" element="tns:isAutenticado"/>
+  <message name="efetuarPedido">
+    <part name="parameters" element="tns:efetuarPedido"/>
+    <part name="Username" element="tns:Username"/>
+    <part name="Password" element="tns:Password"/>
   </message>
-  <message name="isAutenticadoResponse">
-    <part name="parameters" element="tns:isAutenticadoResponse"/>
+  <message name="efetuarPedidoResponse">
+    <part name="result" element="tns:efetuarPedidoResponse"/>
   </message>
-  <message name="processarPedido">
-    <part name="parameters" element="tns:processarPedido"/>
-  </message>
-  <message name="processarPedidoResponse">
-    <part name="parameters" element="tns:processarPedidoResponse"/>
+  <message name="PedidoException">
+    <part name="fault" element="tns:PedidoException"/>
   </message>
   <portType name="FornecedorServiceSOAP">
     <operation name="listarProdutos" parameterOrder="parameters Username Password">
@@ -35,13 +34,10 @@
       <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutosResponse" message="tns:listarProdutosResponse"/>
       <fault message="tns:ProdutoException" name="ProdutoException" wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutos/Fault/ProdutoException"/>
     </operation>
-    <operation name="isAutenticado">
-      <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/isAutenticadoRequest" message="tns:isAutenticado"/>
-      <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/isAutenticadoResponse" message="tns:isAutenticadoResponse"/>
-    </operation>
-    <operation name="processarPedido">
-      <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/processarPedidoRequest" message="tns:processarPedido"/>
-      <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/processarPedidoResponse" message="tns:processarPedidoResponse"/>
+    <operation name="efetuarPedido" parameterOrder="parameters Username Password">
+      <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedidoRequest" message="tns:efetuarPedido"/>
+      <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedidoResponse" message="tns:efetuarPedidoResponse"/>
+      <fault message="tns:PedidoException" name="PedidoException" wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedido/Fault/PedidoException"/>
     </operation>
   </portType>
   <binding name="FornecedorServiceSOAPPortBinding" type="tns:FornecedorServiceSOAP">
@@ -60,23 +56,19 @@
         <soap:fault name="ProdutoException" use="literal"/>
       </fault>
     </operation>
-    <operation name="isAutenticado">
+    <operation name="efetuarPedido">
       <soap:operation soapAction=""/>
       <input>
-        <soap:body use="literal"/>
+        <soap:body use="literal" parts="parameters"/>
+        <soap:header message="tns:efetuarPedido" part="Username" use="literal"/>
+        <soap:header message="tns:efetuarPedido" part="Password" use="literal"/>
       </input>
       <output>
         <soap:body use="literal"/>
       </output>
-    </operation>
-    <operation name="processarPedido">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
+      <fault name="PedidoException">
+        <soap:fault name="PedidoException" use="literal"/>
+      </fault>
     </operation>
   </binding>
   <service name="FornecedorServiceSOAPService">

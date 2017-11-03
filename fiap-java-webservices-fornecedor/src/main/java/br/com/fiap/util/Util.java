@@ -60,5 +60,15 @@ public class Util {
         
         return listaProdutos;
 	}
+	
+	public static boolean isAutenticado(String usuario, String senha){
+		boolean res = Boolean.FALSE;
+		
+		if ("forn".equals(usuario) && "forn".equals(senha)){
+			 res = Boolean.TRUE;
+		}
+		
+		return res;
+	}
 
 }

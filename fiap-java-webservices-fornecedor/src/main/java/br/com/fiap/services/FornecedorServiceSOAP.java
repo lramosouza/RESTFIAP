@@ -10,6 +10,7 @@ import javax.xml.ws.WebServiceContext;
 
 import br.com.fiap.domain.Pedido;
 import br.com.fiap.domain.Produto;
+import br.com.fiap.exception.PedidoException;
 import br.com.fiap.exception.ProdutoException;
 import br.com.fiap.util.Util;
 
@@ -26,7 +27,7 @@ public class FornecedorServiceSOAP {
 		try {
 			List<Produto> produtos = Util.listaProdutos();
 			
-			if (isAutenticado(username, password)){
+			if (Util.isAutenticado(username, password)){
 				System.out.println(produtos);
 				return produtos;
 			}else{
@@ -37,23 +38,54 @@ public class FornecedorServiceSOAP {
 		}
 				
 	}
-	
-	@WebMethod 
-	public boolean isAutenticado(String usuario, String senha){
-		boolean res = Boolean.FALSE;
-		
-		if ("forn".equals(usuario) && "forn".equals(senha)){
-			 res = Boolean.TRUE;
-		}
-		
-		return res;
-	}
+
 	
 	@WebMethod
-	public boolean processarPedido(@WebParam(name="cpfCnpj", header = false) String cpfCnpj,
-			@WebParam(name="pedido", header = false) List<Pedido> pedido) {
+	public String efetuarPedido(@WebParam(name="Username", header = true) String username,
+									@WebParam(name="Password", header = true) String password, 
+									@WebParam(name="cpfCnpj", header = false) String cpfCnpj,
+									@WebParam(name="pedido", header = false) List<Pedido> pedidos) throws PedidoException{
 		
-		return true; 
+		try {
+			
+			List<Pedido> listaPedidos = pedidos;
+			
+			List<Produto> produtos = Util.listaProdutos();
+			
+			int cont = 0;
+			
+			if (Util.isAutenticado(username, password)) {
+				
+				for(Pedido pedido: listaPedidos) {
+				
+					for(Produto produto: produtos) {
+						
+						if(pedido.getCodProduto() == produto.getCodProduto()) {
+							
+							cont++;
+							
+							if(cont == listaPedidos.size()) {
+								return "Pedido efetuado com sucesso!";
+							}
+						}
+					}
+				}
+				
+			
+			} else {
+				
+				throw new PedidoException("Usuário não possui permissão para efetuar o pedido.");
+			}
+			
+			
+		} catch (Exception e) {
+			
+			throw new PedidoException("Erro ao efetuar o pedido: "+e.getMessage(), e);
+		
+		}
+		
+		throw new PedidoException("Não foi possível efetuar o pedido. Produto em falta!");
+		
 	}
 		
 }

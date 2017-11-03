@@ -3,21 +3,19 @@
 
   <xs:element name="Password" nillable="true" type="xs:string"/>
 
+  <xs:element name="PedidoException" type="tns:PedidoException"/>
+
   <xs:element name="ProdutoException" type="tns:ProdutoException"/>
 
   <xs:element name="Username" nillable="true" type="xs:string"/>
 
-  <xs:element name="isAutenticado" type="tns:isAutenticado"/>
+  <xs:element name="efetuarPedido" type="tns:efetuarPedido"/>
 
-  <xs:element name="isAutenticadoResponse" type="tns:isAutenticadoResponse"/>
+  <xs:element name="efetuarPedidoResponse" type="tns:efetuarPedidoResponse"/>
 
   <xs:element name="listarProdutos" type="tns:listarProdutos"/>
 
   <xs:element name="listarProdutosResponse" type="tns:listarProdutosResponse"/>
-
-  <xs:element name="processarPedido" type="tns:processarPedido"/>
-
-  <xs:element name="processarPedidoResponse" type="tns:processarPedidoResponse"/>
 
   <xs:complexType name="listarProdutos">
     <xs:sequence/>
@@ -45,20 +43,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="isAutenticado">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
-      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="isAutenticadoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="processarPedido">
+  <xs:complexType name="efetuarPedido">
     <xs:sequence>
       <xs:element name="cpfCnpj" type="xs:string" minOccurs="0"/>
       <xs:element name="pedido" type="tns:pedido" minOccurs="0" maxOccurs="unbounded"/>
@@ -73,9 +58,15 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="processarPedidoResponse">
+  <xs:complexType name="efetuarPedidoResponse">
     <xs:sequence>
-      <xs:element name="return" type="xs:boolean"/>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PedidoException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
