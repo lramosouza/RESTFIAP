@@ -6,17 +6,6 @@
       <xsd:import namespace="http://services.fiap.com.br/" schemaLocation="FornecedorServiceSOAPService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="listarProdutos">
-    <part name="parameters" element="tns:listarProdutos"/>
-    <part name="Username" element="tns:Username"/>
-    <part name="Password" element="tns:Password"/>
-  </message>
-  <message name="listarProdutosResponse">
-    <part name="result" element="tns:listarProdutosResponse"/>
-  </message>
-  <message name="ProdutoException">
-    <part name="fault" element="tns:ProdutoException"/>
-  </message>
   <message name="efetuarPedido">
     <part name="parameters" element="tns:efetuarPedido"/>
     <part name="Username" element="tns:Username"/>
@@ -28,34 +17,31 @@
   <message name="PedidoException">
     <part name="fault" element="tns:PedidoException"/>
   </message>
+  <message name="listarProdutos">
+    <part name="parameters" element="tns:listarProdutos"/>
+    <part name="Username" element="tns:Username"/>
+    <part name="Password" element="tns:Password"/>
+  </message>
+  <message name="listarProdutosResponse">
+    <part name="result" element="tns:listarProdutosResponse"/>
+  </message>
+  <message name="ProdutoException">
+    <part name="fault" element="tns:ProdutoException"/>
+  </message>
   <portType name="FornecedorServiceSOAP">
-    <operation name="listarProdutos" parameterOrder="parameters Username Password">
-      <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutosRequest" message="tns:listarProdutos"/>
-      <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutosResponse" message="tns:listarProdutosResponse"/>
-      <fault message="tns:ProdutoException" name="ProdutoException" wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutos/Fault/ProdutoException"/>
-    </operation>
     <operation name="efetuarPedido" parameterOrder="parameters Username Password">
       <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedidoRequest" message="tns:efetuarPedido"/>
       <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedidoResponse" message="tns:efetuarPedidoResponse"/>
       <fault message="tns:PedidoException" name="PedidoException" wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/efetuarPedido/Fault/PedidoException"/>
     </operation>
+    <operation name="listarProdutos" parameterOrder="parameters Username Password">
+      <input wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutosRequest" message="tns:listarProdutos"/>
+      <output wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutosResponse" message="tns:listarProdutosResponse"/>
+      <fault message="tns:ProdutoException" name="ProdutoException" wsam:Action="http://services.fiap.com.br/FornecedorServiceSOAP/listarProdutos/Fault/ProdutoException"/>
+    </operation>
   </portType>
   <binding name="FornecedorServiceSOAPPortBinding" type="tns:FornecedorServiceSOAP">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="listarProdutos">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal" parts="parameters"/>
-        <soap:header message="tns:listarProdutos" part="Username" use="literal"/>
-        <soap:header message="tns:listarProdutos" part="Password" use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-      <fault name="ProdutoException">
-        <soap:fault name="ProdutoException" use="literal"/>
-      </fault>
-    </operation>
     <operation name="efetuarPedido">
       <soap:operation soapAction=""/>
       <input>
@@ -68,6 +54,20 @@
       </output>
       <fault name="PedidoException">
         <soap:fault name="PedidoException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listarProdutos">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" parts="parameters"/>
+        <soap:header message="tns:listarProdutos" part="Username" use="literal"/>
+        <soap:header message="tns:listarProdutos" part="Password" use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ProdutoException">
+        <soap:fault name="ProdutoException" use="literal"/>
       </fault>
     </operation>
   </binding>
