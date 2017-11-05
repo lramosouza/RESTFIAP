@@ -1,5 +1,6 @@
 package br.com.fiap.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,12 +14,26 @@ import br.com.fiap.domain.Produto;
 import br.com.fiap.exception.PedidoException;
 import br.com.fiap.exception.ProdutoException;
 import br.com.fiap.util.Util;
+import br.com.fiap.ws.client.financeiro.CobrancaRequest;
+import br.com.fiap.ws.client.financeiro.CobrancaRequestPojo;
+import br.com.fiap.ws.client.financeiro.CobrancaResponse;
+import br.com.fiap.ws.client.financeiro.FinanceiroWebService;
+import br.com.fiap.ws.client.financeiro.FinanceiroWebServiceService;
+import br.com.fiap.ws.client.financeiro.SaldoResponse;
+import br.com.fiap.ws.client.governo.Generate;
+import br.com.fiap.ws.client.governo.GenerateResponse;
+import br.com.fiap.ws.client.governo.Invoice;
+import br.com.fiap.ws.client.governo.Invoice_Service;
+import br.com.fiap.ws.client.governo.Invoice_Type;
 
 @WebService(name = "FornecedorServiceSOAP")
 public class FornecedorServiceSOAP {
 	
 	@Resource 
 	WebServiceContext wsctx;
+	
+	Invoice portGoverno;
+	FinanceiroWebService portFinanceiro;
 	
 	@WebMethod
 	public List<Produto> listarProdutos(@WebParam(name="Username", header = true) String username,
@@ -52,7 +67,14 @@ public class FornecedorServiceSOAP {
 			
 			List<Produto> produtos = Util.listaProdutos();
 			
+			//Governo
+			portGoverno =  new Invoice_Service().getInvoicePort();
+			//Financeiro
+			portFinanceiro = new FinanceiroWebServiceService().getFinanceiroWebServicePort();
+			
 			int cont = 0;
+			
+			double valorTotalPedido = 0;
 			
 			if (Util.isAutenticado(username, password)) {
 				
@@ -64,7 +86,21 @@ public class FornecedorServiceSOAP {
 							
 							cont++;
 							
+							valorTotalPedido += produto.getValor().doubleValue();
+							
 							if(cont == listaPedidos.size()) {
+								
+								//GenerateResponse respostaGoverno =  portGoverno.generate(new Generate(), "transportadora", "transportadora");
+								
+								CobrancaRequestPojo cobranca = new CobrancaRequestPojo();
+								cobranca.setCpfCnpj(cpfCnpj);
+								cobranca.setValor(valorTotalPedido);
+								
+								CobrancaRequest cobrancaRequest = new CobrancaRequest();
+								cobrancaRequest.setCobranca(cobranca);
+								
+								CobrancaResponse respostaFinanceiro = portFinanceiro.cobranca(cobrancaRequest);
+								
 								return "Pedido efetuado com sucesso!";
 							}
 						}
