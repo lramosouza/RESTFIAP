@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de listResponse complex type.
+ * <p>Classe Java de invoiceResponse complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="listResponse">
+ * &lt;complexType name="invoiceResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="list" type="{http://br.com.fiap.government/}invoicesResponse" minOccurs="0"/>
+ *         &lt;element name="invoice" type="{http://br.com.fiap.government/}invoice" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listResponse", propOrder = {
-    "list"
+@XmlType(name = "invoiceResponse", propOrder = {
+    "invoice"
 })
-public class ListResponse {
+public class InvoiceResponse {
 
-    protected InvoicesResponse list;
+    protected Invoice_Type invoice;
 
     /**
-     * Obtém o valor da propriedade list.
+     * Obtém o valor da propriedade invoice.
      * 
      * @return
      *     possible object is
-     *     {@link InvoicesResponse }
+     *     {@link Invoice_Type }
      *     
      */
-    public InvoicesResponse getList() {
-        return list;
+    public Invoice_Type getInvoice() {
+        return invoice;
     }
 
     /**
-     * Define o valor da propriedade list.
+     * Define o valor da propriedade invoice.
      * 
      * @param value
      *     allowed object is
-     *     {@link InvoicesResponse }
+     *     {@link Invoice_Type }
      *     
      */
-    public void setList(InvoicesResponse value) {
-        this.list = value;
+    public void setInvoice(Invoice_Type value) {
+        this.invoice = value;
     }
 
 }

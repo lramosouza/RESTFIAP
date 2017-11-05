@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de listResponse complex type.
+ * <p>Classe Java de generateResponse complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="listResponse">
+ * &lt;complexType name="generateResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="list" type="{http://br.com.fiap.government/}invoicesResponse" minOccurs="0"/>
+ *         &lt;element name="generate" type="{http://br.com.fiap.government/}invoiceResponse" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listResponse", propOrder = {
-    "list"
+@XmlType(name = "generateResponse", propOrder = {
+    "generate"
 })
-public class ListResponse {
+public class GenerateResponse {
 
-    protected InvoicesResponse list;
+    protected InvoiceResponse generate;
 
     /**
-     * Obtém o valor da propriedade list.
+     * Obtém o valor da propriedade generate.
      * 
      * @return
      *     possible object is
-     *     {@link InvoicesResponse }
+     *     {@link InvoiceResponse }
      *     
      */
-    public InvoicesResponse getList() {
-        return list;
+    public InvoiceResponse getGenerate() {
+        return generate;
     }
 
     /**
-     * Define o valor da propriedade list.
+     * Define o valor da propriedade generate.
      * 
      * @param value
      *     allowed object is
-     *     {@link InvoicesResponse }
+     *     {@link InvoiceResponse }
      *     
      */
-    public void setList(InvoicesResponse value) {
-        this.list = value;
+    public void setGenerate(InvoiceResponse value) {
+        this.generate = value;
     }
 
 }
