@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de document complex type.
+ * <p>Java class for document complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="document">
@@ -39,7 +39,7 @@ public class Document {
     protected String value;
 
     /**
-     * Obtém o valor da propriedade type.
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class Document {
     }
 
     /**
-     * Define o valor da propriedade type.
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +63,7 @@ public class Document {
     }
 
     /**
-     * Obtém o valor da propriedade value.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -75,7 +75,7 @@ public class Document {
     }
 
     /**
-     * Define o valor da propriedade value.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is

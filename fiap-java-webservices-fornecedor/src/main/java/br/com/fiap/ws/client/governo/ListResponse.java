@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de listResponse complex type.
+ * <p>Java class for listResponse complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="listResponse">
@@ -34,7 +34,7 @@ public class ListResponse {
     protected InvoicesResponse list;
 
     /**
-     * Obtém o valor da propriedade list.
+     * Gets the value of the list property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class ListResponse {
     }
 
     /**
-     * Define o valor da propriedade list.
+     * Sets the value of the list property.
      * 
      * @param value
      *     allowed object is

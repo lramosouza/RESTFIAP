@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de invoiceResponse complex type.
+ * <p>Java class for invoiceResponse complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="invoiceResponse">
@@ -34,7 +34,7 @@ public class InvoiceResponse {
     protected Invoice_Type invoice;
 
     /**
-     * Obtém o valor da propriedade invoice.
+     * Gets the value of the invoice property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class InvoiceResponse {
     }
 
     /**
-     * Define o valor da propriedade invoice.
+     * Sets the value of the invoice property.
      * 
      * @param value
      *     allowed object is

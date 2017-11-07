@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de generateResponse complex type.
+ * <p>Java class for generateResponse complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="generateResponse">
@@ -34,7 +34,7 @@ public class GenerateResponse {
     protected InvoiceResponse generate;
 
     /**
-     * Obtém o valor da propriedade generate.
+     * Gets the value of the generate property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GenerateResponse {
     }
 
     /**
-     * Define o valor da propriedade generate.
+     * Sets the value of the generate property.
      * 
      * @param value
      *     allowed object is

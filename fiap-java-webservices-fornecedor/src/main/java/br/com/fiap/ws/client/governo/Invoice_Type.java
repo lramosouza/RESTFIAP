@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de invoice complex type.
+ * <p>Java class for invoice complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="invoice">
@@ -56,7 +56,7 @@ public class Invoice_Type {
     protected Double valueWithTax;
 
     /**
-     * Obtém o valor da propriedade detail.
+     * Gets the value of the detail property.
      * 
      * @return
      *     possible object is
@@ -68,7 +68,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade detail.
+     * Sets the value of the detail property.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +80,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Obtém o valor da propriedade issued.
+     * Gets the value of the issued property.
      * 
      */
     public boolean isIssued() {
@@ -88,7 +88,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade issued.
+     * Sets the value of the issued property.
      * 
      */
     public void setIssued(boolean value) {
@@ -96,7 +96,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Obtém o valor da propriedade recipient.
+     * Gets the value of the recipient property.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade recipient.
+     * Sets the value of the recipient property.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +120,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Obtém o valor da propriedade source.
+     * Gets the value of the source property.
      * 
      * @return
      *     possible object is
@@ -132,7 +132,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade source.
+     * Sets the value of the source property.
      * 
      * @param value
      *     allowed object is
@@ -173,7 +173,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Obtém o valor da propriedade value.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -185,7 +185,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade value.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -197,7 +197,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Obtém o valor da propriedade valueWithTax.
+     * Gets the value of the valueWithTax property.
      * 
      * @return
      *     possible object is
@@ -209,7 +209,7 @@ public class Invoice_Type {
     }
 
     /**
-     * Define o valor da propriedade valueWithTax.
+     * Sets the value of the valueWithTax property.
      * 
      * @param value
      *     allowed object is

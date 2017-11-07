@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de tax complex type.
+ * <p>Java class for tax complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="tax">
@@ -37,7 +37,7 @@ public class Tax {
     protected Double percent;
 
     /**
-     * Obtém o valor da propriedade name.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class Tax {
     }
 
     /**
-     * Define o valor da propriedade name.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class Tax {
     }
 
     /**
-     * Obtém o valor da propriedade percent.
+     * Gets the value of the percent property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class Tax {
     }
 
     /**
-     * Define o valor da propriedade percent.
+     * Sets the value of the percent property.
      * 
      * @param value
      *     allowed object is

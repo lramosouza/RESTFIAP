@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de invoiceRequest complex type.
+ * <p>Java class for invoiceRequest complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="invoiceRequest">
@@ -37,7 +37,7 @@ public class InvoiceRequest {
     protected Double value;
 
     /**
-     * Obtém o valor da propriedade document.
+     * Gets the value of the document property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class InvoiceRequest {
     }
 
     /**
-     * Define o valor da propriedade document.
+     * Sets the value of the document property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class InvoiceRequest {
     }
 
     /**
-     * Obtém o valor da propriedade value.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class InvoiceRequest {
     }
 
     /**
-     * Define o valor da propriedade value.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is

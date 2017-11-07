@@ -15,12 +15,12 @@ import br.com.fiap.exception.ProdutoException;
 import br.com.fiap.util.Util;
 import br.com.fiap.ws.client.financeiro.CobrancaRequest;
 import br.com.fiap.ws.client.financeiro.CobrancaRequestPojo;
-import br.com.fiap.ws.client.financeiro.CobrancaResponse;
 import br.com.fiap.ws.client.financeiro.FinanceiroWebService;
 import br.com.fiap.ws.client.financeiro.FinanceiroWebServiceService;
+import br.com.fiap.ws.client.governo.Document;
 import br.com.fiap.ws.client.governo.Generate;
-import br.com.fiap.ws.client.governo.GenerateResponse;
 import br.com.fiap.ws.client.governo.Invoice;
+import br.com.fiap.ws.client.governo.InvoiceRequest;
 import br.com.fiap.ws.client.governo.Invoice_Service;
 
 @WebService(name = "FornecedorServiceSOAP")
@@ -88,18 +88,23 @@ public class FornecedorServiceSOAP {
 							if(cont == listaPedidos.size()) {
 								
 								//Serviço Governo
-								GenerateResponse respostaGoverno =  portGoverno.generate(new Generate(), "transportadora", "transportadora");
-								
-								
+								Generate g = new Generate();
+								Document doc =  new Document();
+								doc.setType(br.com.fiap.ws.client.governo.Type.CPF);
+								doc.setValue(cpfCnpj);
+								InvoiceRequest invoice = new InvoiceRequest();
+								invoice.setDocument(doc);
+								invoice.setValue(valorTotalPedido);
+								g.setArg0(invoice) ;
+								portGoverno.generate(g, "transportadora", "transportadora");
+																
 								//Serviço Financeiro
 								CobrancaRequestPojo cobranca = new CobrancaRequestPojo();
 								cobranca.setCpfCnpj(cpfCnpj);
 								cobranca.setValor(valorTotalPedido);
-								
 								CobrancaRequest cobrancaRequest = new CobrancaRequest();
 								cobrancaRequest.setCobranca(cobranca);
-								
-								CobrancaResponse respostaFinanceiro = portFinanceiro.cobranca(cobrancaRequest);
+								portFinanceiro.cobranca(cobrancaRequest);
 								
 								return "Pedido efetuado com sucesso!";
 							}
